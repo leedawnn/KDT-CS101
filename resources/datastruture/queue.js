@@ -31,18 +31,38 @@ class Queue{
      return result;
   }
 
-  size() {continue}
-  print() {continue}
-  clear() {continue}
+  size() {
+    console.log(`queue size: ${this.count}`);
+    return this.count;
+  }
+
+  print() {
+    let toPrint = this.items.toString();
+    console.log(toPrint);
+    return toPrint;
+  }
+
+  clear() {
+    this.items.splice(0,this.items.length);
+    this.count = 0;
+    console.log('Reset Queue Complete');
+    return this.items;
+  }
 }
 
 const queue = new Queue();
 
-isEmpty();
+queue.isEmpty();
 queue.enqueue('java');
 queue.enqueue('Script');
 queue.dequeue();
 
 queue.enqueue('script');
 queue.enqueue('Awesome');
-isEmpty();
+queue.isEmpty();
+
+queue.print();
+queue.size();
+queue.clear();
+
+queue.isEmpty();
